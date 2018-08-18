@@ -1,0 +1,17 @@
+--- makepkg.old	2018-08-18 20:24:25.512618928 +0200
++++ makepkg	2018-08-18 20:24:50.855745226 +0200
+@@ -1409,13 +1409,7 @@
+ 	exit $E_FS_PERMISSIONS
+ fi
+ 
+-if (( ! INFAKEROOT )); then
+-	if (( EUID == 0 )); then
+-		error "$(gettext "Running %s as root is not allowed as it can cause permanent,\n\
+-catastrophic damage to your system.")" "makepkg"
+-		exit $E_ROOT
+-	fi
+-else
++if (( INFAKEROOT )); then
+ 	if [[ -z $FAKEROOTKEY ]]; then
+ 		error "$(gettext "Do not use the %s option. This option is only for internal use by %s.")" "'-F'" "makepkg"
+ 		exit $E_INVALID_OPTION

@@ -1,4 +1,4 @@
-FROM pritunl/archlinux
+FROM nerzhul/archlinux
 
 COPY makepkg.patch /tmp/makepkg.patch
 RUN pacman -Sy --noconfirm binutils fakeroot gcc git make patch \

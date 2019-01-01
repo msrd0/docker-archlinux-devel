@@ -5,8 +5,3 @@ RUN pacman -Sy --noconfirm archlinux-keyring \
   && pacman -Su --noconfirm binutils fakeroot file gawk gcc git make patch pkgconf \
   && patch /usr/bin/makepkg /tmp/makepkg.patch \
   && rm -rf /tmp/* /var/cache/* /var/lib/pacman/sync /usr/share/man /usr/share/locale
-
-##############
-
-FROM scratch
-COPY --from=0 / /
